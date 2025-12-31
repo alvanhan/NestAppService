@@ -1,0 +1,1628 @@
+{
+	"info": {
+		"_postman_id": "49bf62b1-8b50-40b3-8a56-dc017e5d7d62",
+		"name": "NestAppService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17983995"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/users?page=1&limit=10",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "Content-Length",
+											"value": "698"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2ba-kJsWvvn68PZ7Od5NltbhHxJ243I\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 31 Dec 2025 05:48:34 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n            \"name\": \"User\",\n            \"email\": \"user@example.com\",\n            \"role\": \"USER\",\n            \"createdAt\": \"2025-12-31T05:41:30.300Z\"\n        },\n        {\n            \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"name\": \"Admin\",\n            \"email\": \"admin@example.com\",\n            \"role\": \"ADMIN\",\n            \"createdAt\": \"2025-12-31T05:41:30.255Z\"\n        },\n        {\n            \"id\": \"713d7be2-a333-4c70-8eb0-be88758d6b1f\",\n            \"name\": \"Alvan Hanani\",\n            \"email\": \"vanhan@gmail.com\",\n            \"role\": \"USER\",\n            \"createdAt\": \"2025-12-31T05:29:41.501Z\"\n        },\n        {\n            \"id\": \"5d0def50-3f95-47d8-b862-2efbef2aee4f\",\n            \"name\": \"Alvan Han\",\n            \"email\": \"vanhanid@gmail.com\",\n            \"role\": \"USER\",\n            \"createdAt\": \"2025-12-31T05:14:04.761Z\"\n        }\n    ],\n    \"meta\": {\n        \"total\": 4,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+								},
+								{
+									"name": "forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/users?page=1&limit=10",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "Content-Length",
+											"value": "119"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"77-MtxqsqfQ89XQXmENzK0pVYHsrSw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 31 Dec 2025 05:50:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"statusCode\": 403,\n    \"message\": \"Access denied\",\n    \"error\": \"Forbidden\",\n    \"timestamp\": \"2025-12-31T05:50:22.133Z\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Alvan Hanani\",\r\n    \"email\":\"vanhan@gmail.com\",\r\n    \"password\":\"Password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f0-fncAjRjGhZzmmKV1eOFIHr70cXY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:12:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"name should not be empty\",\n        \"name must be a string\",\n        \"email should not be empty\",\n        \"email must be an email\",\n        \"password must be longer than or equal to 6 characters\",\n        \"password must be a string\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Alvan Han\",\r\n    \"email\":\"vanhanid@gmail.com\",\r\n    \"password\":\"Password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"81-SNgZVBwoxql2RwQZTWp/8LbfxbI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:29:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"statusCode\": 409,\n    \"message\": \"Email already registered\",\n    \"error\": \"Conflict\",\n    \"timestamp\": \"2025-12-31T05:29:17.411Z\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Alvan Hanani\",\r\n    \"email\":\"vanhan@gmail.com\",\r\n    \"password\":\"Password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "168"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a8-6fH+x6zIZanZurEvSAH9Eog+0aI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:29:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Registration successful\",\n    \"data\": {\n        \"id\": \"713d7be2-a333-4c70-8eb0-be88758d6b1f\",\n        \"name\": \"Alvan Hanani\",\n        \"email\": \"vanhan@gmail.com\",\n        \"role\": \"USER\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user@example.com\",\r\n    \"password\":\"user123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"vanhan@gmail.com\",\r\n    \"password\":\"Password11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-yAZHv4tx5g7VCnIi3/chfeoXoFg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:31:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"statusCode\": 401,\n    \"message\": \"Invalid email or password\",\n    \"error\": \"Unauthorized\",\n    \"timestamp\": \"2025-12-31T05:31:39.678Z\"\n}"
+						},
+						{
+							"name": "login  admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "428"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ac-eiLz5vfxWHbapPTbHvpdeDRwrEE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODY1MWJmNC0wZmMwLTQ2MmYtODgzMy1kMTAwNmVmMTAzMGYiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY3MTYwMDA5LCJleHAiOjE3Njc3NjQ4MDl9.EhbpmKxon2IuKDiM4YvDwKI-f6QB2njhKiBi1Gsifl0\",\n        \"user\": {\n            \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"name\": \"Admin\",\n            \"email\": \"admin@example.com\",\n            \"role\": \"ADMIN\"\n        }\n    }\n}"
+						},
+						{
+							"name": "login user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"user@example.com\",\r\n    \"password\":\"user123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "423"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a7-Ff8JjWKW+g2JlmQe6121o7r/zlM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:49:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDdmNTc1YS1iMGM5LTRjMDAtYTMxOS01MWE5NDgzMjM2ZmYiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc2NzE2MDE4NCwiZXhwIjoxNzY3NzY0OTg0fQ.hCmbZHqo4EvPN0JifXAbsukXDg7RY6hdJEYMSIUAW9k\",\n        \"user\": {\n            \"id\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n            \"name\": \"User\",\n            \"email\": \"user@example.com\",\n            \"role\": \"USER\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d6-0LYbLE6jxsH+R7ZBobHQNVBfZn4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 05:46:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Profile retrieved successfully\",\n    \"data\": {\n        \"id\": \"713d7be2-a333-4c70-8eb0-be88758d6b1f\",\n        \"name\": \"Alvan Hanani\",\n        \"email\": \"vanhan@gmail.com\",\n        \"role\": \"USER\",\n        \"createdAt\": \"2025-12-31T05:29:41.501Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Book 1000 Pages\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Book\",\r\n    \"description\": \"New Book\",\r\n    \"price\": 100000,\r\n    \"stock\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "399"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18f-0EzVormdsA4Kfgh2SaSWjm5xG+w\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:13:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Product created successfully\",\n    \"data\": {\n        \"id\": \"06b233bb-4aaa-42bb-a537-cb251c70f104\",\n        \"name\": \"Book\",\n        \"description\": \"New Book\",\n        \"price\": 100000,\n        \"stock\": 2,\n        \"createdAt\": \"2025-12-31T06:13:53.912Z\",\n        \"updatedAt\": \"2025-12-31T06:13:53.912Z\",\n        \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n        \"user\": {\n            \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"name\": \"Admin\",\n            \"email\": \"admin@example.com\"\n        }\n    }\n}"
+						},
+						{
+							"name": "user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Book 1000 Pages\",\r\n    \"description\": \"New Book december\",\r\n    \"price\": 110000,\r\n    \"stock\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a1-/v4lxxpFwCvZg6iM/sAIrS1AMnY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:15:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Product created successfully\",\n    \"data\": {\n        \"id\": \"7f5a142a-cab7-42d3-9dce-165ea47918e7\",\n        \"name\": \"Book 1000 Pages\",\n        \"description\": \"New Book december\",\n        \"price\": 110000,\n        \"stock\": 5,\n        \"createdAt\": \"2025-12-31T06:15:09.260Z\",\n        \"updatedAt\": \"2025-12-31T06:15:09.260Z\",\n        \"createdBy\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n        \"user\": {\n            \"id\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n            \"name\": \"User\",\n            \"email\": \"user@example.com\"\n        }\n    }\n}"
+						},
+						{
+							"name": "failed validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Book 1000 Pages\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-2Bd+S4farOpuApiGzqZu1TlqGQQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:15:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": [\n        \"price must not be less than 0\",\n        \"price must be a number conforming to the specified constraints\"\n    ],\n    \"error\": \"Bad Request\",\n    \"timestamp\": \"2025-12-31T06:15:52.298Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Product List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/products?page=1&limit=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "createdBy",
+									"value": "58651bf4-0fc0-462f-8833-d1006ef1030f",
+									"description": "user_id optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/products?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3335"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d07-Bc8sZrJLeb9F6cXHIT0qawjlStU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:18:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Products retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"7f5a142a-cab7-42d3-9dce-165ea47918e7\",\n            \"name\": \"Book 1000 Pages\",\n            \"description\": \"New Book december\",\n            \"price\": 110000,\n            \"stock\": 5,\n            \"createdAt\": \"2025-12-31T06:15:09.260Z\",\n            \"updatedAt\": \"2025-12-31T06:15:09.260Z\",\n            \"createdBy\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n            \"user\": {\n                \"id\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n                \"name\": \"User\"\n            }\n        },\n        {\n            \"id\": \"06b233bb-4aaa-42bb-a537-cb251c70f104\",\n            \"name\": \"Book\",\n            \"description\": \"New Book\",\n            \"price\": 100000,\n            \"stock\": 2,\n            \"createdAt\": \"2025-12-31T06:13:53.912Z\",\n            \"updatedAt\": \"2025-12-31T06:13:53.912Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"12efce81-843d-4f93-991c-ad8dd3a9fbfa\",\n            \"name\": \"Mousepad XL\",\n            \"description\": \"Extended mousepad\",\n            \"price\": 150000,\n            \"stock\": 60,\n            \"createdAt\": \"2025-12-31T05:58:14.810Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.810Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"eaf8d7ab-a046-4621-821f-0c6e0bc2434e\",\n            \"name\": \"RAM 16GB\",\n            \"description\": \"DDR4 3200MHz\",\n            \"price\": 800000,\n            \"stock\": 45,\n            \"createdAt\": \"2025-12-31T05:58:14.805Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.805Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"cdacf17c-ce90-4deb-84f4-7075dbcb6d81\",\n            \"name\": \"SSD 1TB\",\n            \"description\": \"NVMe SSD 1TB\",\n            \"price\": 1500000,\n            \"stock\": 35,\n            \"createdAt\": \"2025-12-31T05:58:14.799Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.799Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"9aac9088-c6b6-42eb-a960-d836fa56df69\",\n            \"name\": \"USB Hub\",\n            \"description\": \"7-port USB hub\",\n            \"price\": 250000,\n            \"stock\": 50,\n            \"createdAt\": \"2025-12-31T05:58:14.794Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.794Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"38725c39-5b7c-4072-a546-94878ace9092\",\n            \"name\": \"Webcam HD\",\n            \"description\": \"1080p webcam\",\n            \"price\": 500000,\n            \"stock\": 40,\n            \"createdAt\": \"2025-12-31T05:58:14.789Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.789Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"b07492dc-4c28-4568-a022-759f0fdcdd5f\",\n            \"name\": \"Headset Gaming\",\n            \"description\": \"Surround sound headset\",\n            \"price\": 1200000,\n            \"stock\": 20,\n            \"createdAt\": \"2025-12-31T05:58:14.784Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.784Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"106b853a-f085-46c8-8d08-7c9b866771ba\",\n            \"name\": \"Monitor 27 inch\",\n            \"description\": \"4K UHD monitor\",\n            \"price\": 5000000,\n            \"stock\": 15,\n            \"createdAt\": \"2025-12-31T05:58:14.780Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.780Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        },\n        {\n            \"id\": \"71ebd965-98c8-4a16-a567-7d1e5314601d\",\n            \"name\": \"Gaming Mouse\",\n            \"description\": \"Wireless gaming mouse\",\n            \"price\": 800000,\n            \"stock\": 30,\n            \"createdAt\": \"2025-12-31T05:58:14.776Z\",\n            \"updatedAt\": \"2025-12-31T05:58:14.776Z\",\n            \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"user\": {\n                \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"name\": \"Admin\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"total\": 22,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Product Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "16cc573e-faac-473d-8897-c62609de5047"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/products/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "16cc573e-faac-473d-8897-c62609de5047"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "435"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b3-qe5QMvRx7cgrdbMQaq6sTa73Aig\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:25:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Product retrieved successfully\",\n    \"data\": {\n        \"id\": \"16cc573e-faac-473d-8897-c62609de5047\",\n        \"name\": \"Laptop Gaming\",\n        \"description\": \"High performance gaming laptop\",\n        \"price\": 15000000,\n        \"stock\": 10,\n        \"createdAt\": \"2025-12-31T05:57:13.618Z\",\n        \"updatedAt\": \"2025-12-31T05:57:13.618Z\",\n        \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n        \"user\": {\n            \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"name\": \"Admin\",\n            \"email\": \"admin@example.com\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Product Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Laptop Gaming Acer\",\r\n    \"description\": \"High performance gaming laptop now\",\r\n    \"price\": 17000000,\r\n    \"stock\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "16cc573e-faac-473d-8897-c62609de5047"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sucess",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Laptop Gaming Acer\",\r\n    \"description\": \"High performance gaming laptop now\",\r\n    \"price\": 17000000,\r\n    \"stock\": 100\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/products/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "16cc573e-faac-473d-8897-c62609de5047"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "415"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19f-1g9IhiMIr20xF3oVsyoToBPEUeE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:43:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Product updated successfully\",\n    \"data\": {\n        \"id\": \"16cc573e-faac-473d-8897-c62609de5047\",\n        \"name\": \"Laptop Gaming Acer\",\n        \"description\": \"High performance gaming laptop now\",\n        \"price\": 17000000,\n        \"stock\": 100,\n        \"createdAt\": \"2025-12-31T05:57:13.618Z\",\n        \"updatedAt\": \"2025-12-31T06:43:53.809Z\",\n        \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n        \"user\": {\n            \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n            \"name\": \"Admin\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Product Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64406852-5fd6-41e0-973a-9d47b3a21a4c"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/products/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64406852-5fd6-41e0-973a-9d47b3a21a4c"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-UG6dQiGU+TQoO1TZfLnQbOSr5mg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 06:46:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Product deleted successfully\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Export Excel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/products/export/excel?createdBy=607f575a-b0c9-4c00-a319-51a9483236ff",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"export",
+								"excel"
+							],
+							"query": [
+								{
+									"key": "createdBy",
+									"value": "607f575a-b0c9-4c00-a319-51a9483236ff",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Export Excel",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/products/export/excel?createdBy=607f575a-b0c9-4c00-a319-51a9483236ff",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"export",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "createdBy",
+											"value": "607f575a-b0c9-4c00-a319-51a9483236ff",
+											"description": "optional"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=products-report-2025-12-31.xlsx"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 07:26:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000[Content_Types].xml��Mn�0\u0010��=E�-J\f]TUE¢��\u0016��\u0000�xB,\u001c���w\u0012(�* �`\u0013+�7�{��\u0019O��I�\u0018H;��Q6\u0014\t��)m\u0017������\"�\bV�q\u0016s�C\u0012��n<�y���-墎�?IIe�\rP�\n<Z�T.4\u0010�6,��r\t\u000b����,��hc\u001a[\u000fQ��X����eˏ�A\u0002\u001a\u0012��^زr\u0001�\u001b]B�\\[���\u001e\b\u0019wv\u001a���\u0001\u000b�\n    <Ih+�\u0001��w�L�\n�\u0019��\u0006\r���ȍ\u000b�/��e�\u0013)]U�\u0012�+W\r�d�\u0003��\u001a16&�֬\u0001m\u0007��NL�[F7\u000er���\u0011�}��z}�Φ\u0007Hqg�n=�δ�\\C@�\u0011\u0003\u001f��\u0007��}�]_I��i�\rS�m����<�\u0011\r��]����;�l�!�ˣ=\u0012���b;+��\u0004[v?��\u001bPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000_rels/.rels���N�0\f@�|E���nH\b��� ��&4>�$n\u001b���ă�@\f�i\u0007�q��g���<��R�\u001c\f,�\u001a\u0014\u0005�·����iq\u000f*\u000b\u0006�#\u00072p�\f��f�L#J�ɽ�Y\u0015H�\u0006z���u�=M�+�\u0014�O�iB)���v������t�ɀ愩��@ں%��1�5ln[o��a� gZ��(dL\u001d��y�W�*P��]V׻�=��HС���h\u0011S�N��Z�u\u001c�]\t�όKB���\u001c���#wY\tc�2�'7�|\u0000PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000xl/PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000xl/_rels/workbook.xml.rels���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000xl/worksheets/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[l>$Қ\u0002\u0000\u00003\b\u0000\u0000\u0018\u0000\u0000\u0000xl/worksheets/sheet1.xml�U[o�0\u0014~߯��^r�\u0004\u0011���ڤM��N{v\u001d�Xu��6�����\t\u0019���R����|�s�ث��B�=S��2���ň�T���&�����\u0002#mH�\u0012!K��\u0017������ Փ�\u00193\b\bJ��ܘj�8�� z&+V�L&UA\f\f��ѕb$��B8��Ν��\u00127\fK�\u0016\u000e�e��������!QL\u0010\u0003�u�+}d+�[�\n��v�\u0005�E\u0005\u0014�\\p�bI1*��붔�<\n(��\u000b\t=r�����TI-33\u0003����؉\u001d`Z�R\u000e\u0015�]G�e\t����1v�+�{g=�+�����!\u000f_\u0018��\u0006�(�H��%���L�T��~�F\n\u001b�F��ˆi\n�Jp\u0014�\u0012T\nmQ��E�bɳ�?���\t\u000e\u0000Kw���w\u0013�ZX\u0003�[��\u0001��\u0005\u0004\u001d���\f l\u0001�?�y��\u0005D�(8M���\u001bb�z��\u0001)[��H���e�l#\r�Y\f\u001b\u00185ԝ�\u0011,&�)�;\u001cLh������ע�\u0005�N,8\u0011�-��Xp�ub^'f3>�3�i;�\u0007�\tGb���8#��\u0013}��h$\u0016\r�\u001c3���\u0019������|`d�q9mgqb'zMwaY�\u0013��@w�\u0011�3n�\u0019��O�L�\f���D��a��\u0002�S��^�M����֧\u000b�A9��V���E\u0003���YR�-�NԖ�\u001a\t�Y˗\u0018����FV�\t�{�\u0006v�q��=�T=�VeR���ix2���T\u001cZa��\u0004WR\u0019E�\u00010��H�\u0010���\u000b��a<��c����p:1�!��\u0015N֌�\u0007ٝ�Ͱ�p�����PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[�2%�C\u0001\u0000\u0000q\u0002\u0000\u0000\u0014\u0000\u0000\u0000xl/sharedStrings.xmlu��N\u0003!\u0014E��\n³\u0014�k����5^^L��\u0007\u001cᴝ8\u0003#P�/��\u0018\u001a\u001fY��Y\u0010ګ�q ��|o͒ʙ�\u0004���7�%�moٜ\u0012\u001f�h\u0018��%�DO�����@b��%=�0-8��#�����do�\b!.݁��!hD\f��3!*>Bo(Q�dB\u001c[Qr2��\t׿�k}ߵ��8�O*x�u��k�w�\u0013ߡA\u0007\u00015Y}�ٵ\u001e{����\\r�E���$��e�LT鞭\r0D\u0019e��ix�\u000f\u0001]J���?�\u000bR�z_�%�\u0017�\u001aV(!\u0018�a�����Y^��i��&%�0b�6�Wg�9X���{\u001c�s��\u0005�Ȁ)x�Y��5Z!�U�Pԍ�c�vV־\u0012)� \u001b8��s���1<���\u000bPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/theme/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[v�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000xl/theme/theme1.xml�YMo�6\u0018��W\u0010���R'�SĎ�nm� q;�HK�Ć\u0012\u0005�N���\u001e\u0007\f\u0018�\r�\f�m�a[�\u0016إ�5�:l\u001dп�Wև)�j�&�P 98\"�<�\u0017��%i_�q\u001c2tH��<�X��5\u000b���\u001e���u8�Ҷ�T8�0�\u0011�XS\"�\u001b�\u001f]�\u001b* !A@��\u0006�X�R�mK\u0017����c\u0012��1\u0017!V0\u0014��\t|\u0004bCf7j�5;�4�P�C�zo<�.A�D���r�}\u0006\u001f���\u0019��}w�S�h�>�/���\u0004:Ĭc�.�\u001f\rɱ�\u0010�R���U��Y6��9��*�F\u001d��rjN�\u000e\u001a)U���[\u001f�֯mϵ42-\u0006h�����s�)\u0004�.�]_��\u0006�z�����g��^ͩ�\u0016(���2e���:�eJS���)��Zk�Q��4�c��뭕)�FY[�\f����\u0016(),`4:X&$�=_�9h��-3�\r�v�!\u001a��R0�\u0011�ʌ\f�#.\u0006�H�\u001e+\u001a!5��\u0018����p$(�i�\u001b\u0004k��9W.�%\n�t\u0005�U��$�P>s̛�?�y�\u001c�y����ǿ�\n        <yr��\u0017\u0013�\u0016�|����/���3����_?��� u�\u001f?��o_U ��|�ͳ?_<{��\u0017��Ԅ�\u0012x��4$\u0012�%Gh����I\u0005\u0019�3R�\u0001�%\n\u000e\u0000jB�UPBޝbf\u0004vI9�\u000f\u0004�\u000b#���Q���@L\u00145!o\u0007a\t��9�ra��v�N�i\u0012�\u0015��D\u0007�a|hT�[X��$�ܦF����L�e���'\u0011Q(y�\u000f\b1�\u001eRZ��\u000eu\u0005�|��C����\u00033�#efݢ!,��h#�z)B;\u000fP�3��mrX�B�`f\u0014JX)�7�D��l5\u000e�\u000e��U`4t*�RूE�\t��\u0011)��{bZ2�6�6e΀\u001d6\r�P��\u0011z\u0007s�C��A/�al��F�\u000e�X\u001e@�b�˕�\u000e^��d\f\u000b���@�:c�ߧ~`N���D\u0018k��r�N�\u0018�(�\u0004ʽ<��[;;���/;�Bg߂��XQ���\u0012��v�m<�v\tT�e\u0013�l�M�m\u0015�>Z�֬m�ȞJ\n�\u000f�c�ؾ�2rG��^���\u0000f�ьW�\u001a�\u0000\u001es�e�/�l�\u0004W�R\u0015�\u00078\u0006]�T�/s��D1�pe��\u0015�Wc\n��&��2\u000bx�v���7K��BR:�eI]3\u0011����󫬧ؕu֝\n��i:m=�P[\b'_k��\u001a�\u0005�E�\u0011/Y�LH�X�{��5}�\u0002�\u0011Ӽ�k�����і��{�\u0010w�P{,Z\u0018�����4\u001c\u000b�8�Xc8��c\u0018�L�4(���c�*�u��]�~�\"��5�����XH��e�\u0012g�/z\"͑��J�rQ�\u0018�Ъ�4����\u0016{i��xL\\U5���|���\u000f�#4b\u0013����V�z\u001e��m4��oeYY.�\u0016�N�+\u000b�8�YA���H\t頰#\u001d�F�U>��O�\u000b�ɹ�)��]8\u00137�ٳ\u000b\u0007\u0005�Q��\u001d�\u000b\u0015ph]q@݁��E�\u0011�CP:�i�%_�'6�C�ݥR���\u0007j��HPh�*\u0010�������\u001b�]7\u0017�����2�\u001eF䐰aR�kI0,\u0014��'�J�\\ZH�X�#�\u0001\u001c�Z／�յζ����C�T��o�j����Q�~�y�N����p�A�\u0007�\u0000T�L;'\u000f�\u001ed\u0006*�\u0012\br�J;+�br\u0004��u?\u0013a����]�\t\u0017~z��߬���J�\u0013�\u0010~���ۆ����R:\\�q��\u001e�\u0005�p\t��lJ�0̞vE���{���ɴ�d�)6\b\u0016�1��q��\u000bQ�~��\u001f\u0019�2=I(\nns\u0015n��6���X�_p6�i���<�2��?ed\u00190o��ر��Q\\ɓ�(��|�(����\u0014Eu|j\u0014�����$�J�^��\u001e���%��PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[S��l�\u0002\u0000\u0000(\u0007\u0000\u0000\r\u0000\u0000\u0000xl/styles.xml���o�0\u0010���WX~O�\u0004�\u0001\"T�4R�n�T&��$\u000eX���1]�i���I����������}��s����\u0002=3Sq�\u0012\u001c\\�\u00181�霫m���So�Qe�ʩЊ%�a\u0015�^|�W�\u0011�qǘE@PU�w֖3B�l�$��t�\u0014X\nm$��4[R��ѼrAR���c\")W�#�d�7\u0010I�Ӿ�2-Kj��\u000bn�����fw[�\r�\b��\u000e�4Cu\u0010�𐡕^$�\n            <3�҅�\u0002(�E�3���)�\u0012��H���\u0014D�\u000f��/�V�B��+��1�]��'���ԙ�%��b�i�\r���9��N%\u0017\rz�\"��\u0013�BX'H\u000eGъ?:!hc\u0014=8�P�7�;�t\u0019���0&~a���B;T`�B\u001c�\u0015�NX̡c�\u0019��\u0002��uS�n\u0014ܭ.Q������&\b�A@;@ލ69��Cfwv���\u000bVX\b0|�s��%qFk�S�y��V+*\u001c�\u0010�O\u0000�1!\u001e݅�V���\u0002��L���\u0013\f_���a\n\u0005��\u000e�-\u001cH��\u0003��\",��#�����hD�R4���\u0017�-V�\u001fY�\u000bX�?�Ak�\u001asT���\t��\u001e\u00101\u0000n�\\X�^i\n0��ԏ�j݋r�\u0005\u00189+�^��ј���3��^�G�\u0007��m�u�߻��}c����mG�7<�?o�\u001f���4�&�r�G,��r�E��j�N�п�5x���a�_#��*\u0001^��l_��IK�`ѕߞ\u001f�=�}\u001a���(�t�\u0007�8�\u0013o\u0012�\"/��p\u0015���Q\u001a\rj�.|J}\u0012\u0004�⣙�\t��y��\nM��\u001f6A\u000e� ����oPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000docProps/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[#���\u0001\u0000\u0000!\u0003\u0000\u0000\u0010\u0000\u0000\u0000docProps/app.xml�RAn�0\u0010��\u0015\u0002�1�\b\n�b\u00108-rhP\u0003v��ZYD(��n\u0004��/%Ê������`4\u001c��=t��1�\r�\u0012�E)\n�&���+��~�U\u0014��kp�c%�H�VR�\u0014\"&�HEv�T��9��$�b\u0007��k�7MH\u001dp\u001e�^���\u0006�y�г�.�\u001b�\u0007F_c}\u0015'Cqr\\����u0C>z�\u001dc���.Fg\rp~�~�&\u0005\n\r\u0017�\u000e\u0006����F[4o��Q�J�G�5�p��u\u0003�P�wB= \f�m�&Ҫ�U��C*��έ]��\u0005\b�8��!Y�,N��0b\u0017���\u0015�+��LJN�\b��9�_�r\u0014dp)�S��/#�,;���\u0006\u0012�#�r�x� f\u0019��C��w�r^�.����\t=��=\u000e�\t������.dk<�{I�m\u000b\t��K��'B=��\r�u\u000b~��Y�q1\\������fQ~.��\bΜ��ǭ�\u0000PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[H-��_\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000docProps/core.xml�R�N�0\u0010��\u0015�禎T\u0014\u0014��\u0004�'*!Q\u0004�f�mk�ؖ�%���<���'n;;��}8[\u001c�\"�\u0001�Vs\u0012O\"\u0012��ZH�����2�'�C�\u0004+��9���E~�q�rm��j\u0003\u0016%��\u001b)�r3';D�R��\u000eJ�&^�<�Ѷd��R���m�&Q4�% \u0013\f\u0019m\fC38��R���\u001cl�\u001a\bN��\u0012\u0014:\u001aOb:j\u0011l�\u0016�̙��X\u001b�*=����� ��jRM[��?�\u001f���v�P�fU\u001cH�\t�r\u000b\f����^�Je�,��(���M������\u001b8v�\u0001�X��V\u001a�w�ȋ�?�\u001e�J[�<{��K1���uG�ȃ�9\\�so$��z��/����f\u0000\u0011����\u0006O����i�$y\u0012%�a���x\u001dݥ�,�f�M�\u0017��a�?�oǓA?�ſ�\u0001PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000C;�[��tW\u0001\u0000\u0000o\u0002\u0000\u0000\u000f\u0000\u0000\u0000xl/workbook.xml��Mo�0\f���\u0015Q��\u0016\u0018l\u0015-��&q�8��M�҈|)I���s�:i��%�c��k{��h�N胴���8�\f���4���>F/��\b�\u0002e\r\u0016����ʧ������#��&\u0014����I\u0012D�\u001a��:4\u0014���\u0010���$8�P�\u00061j�L�t�h���\b��a�Z\n\\[�j4�\u0006� ���H\u0017\u0006�\u0016��4�c�F�jG��T2^{(gZ䛃�\u001e����d�\u0003��wh-����qL�_�w�fi�e���e-\u0015~ߦ���O�]\u0015ř�\u0010�+\u0019�*8�T���\u001e|��Z��y��S����zVa\r��;R5�i��Y�e�QɈ~��\tĕ������kYn�.�L�h\r\u0011��GrN2H�\u0006i�%%�M5�\u0018�\u0000\u0011�\u0004��L\u000fYd�d�g\f\u0012�\u001fPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0001\u0000\u0000_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\b\u0003\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000)\u0004\u0000\u0000xl/worksheets/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[l>$Қ\u0002\u0000\u00003\b\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000U\u0004\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[�2%�C\u0001\u0000\u0000q\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000%\u0007\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\b\u0000\u0000xl/theme/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[v�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\b\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[S��l�\u0002\u0000\u0000(\u0007\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0013\u000f\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000C;�[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0011\u0000\u0000docProps/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[#���\u0001\u0000\u0000!\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0012\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[H-��_\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0013\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000C;�[��tW\u0001\u0000\u0000o\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000D\u0015\u0000\u0000xl/workbook.xmlPK\u0005\u0006\u0000\u0000\u0000\u0000\u0010\u0000\u0010\u0000�\u0003\u0000\u0000�\u0016\u0000\u0000\u0000\u0000"
+						}
+					]
+				},
+				{
+					"name": "Export Pdf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/products/export/pdf?createdBy=607f575a-b0c9-4c00-a319-51a9483236ff",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"export",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "createdBy",
+									"value": "607f575a-b0c9-4c00-a319-51a9483236ff"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/dashboard/summary",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dashboard",
+								"summary"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/dashboard/summary",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"dashboard",
+										"summary"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1809"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"711-rxetfv7Uld3EzsHhmC3knlDQDPo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Dec 2025 07:31:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Dashboard summary retrieved successfully\",\n    \"data\": {\n        \"counts\": {\n            \"users\": 4,\n            \"products\": 21,\n            \"totalStock\": 707,\n            \"totalInventoryValue\": 2419250000,\n            \"maxPrice\": 17000000,\n            \"minPrice\": 100000\n        },\n        \"recentProducts\": [\n            {\n                \"id\": \"7f5a142a-cab7-42d3-9dce-165ea47918e7\",\n                \"name\": \"Book 1000 Pages\",\n                \"description\": \"New Book december\",\n                \"price\": 110000,\n                \"stock\": 5,\n                \"createdAt\": \"2025-12-31T06:15:09.260Z\",\n                \"updatedAt\": \"2025-12-31T06:15:09.260Z\",\n                \"createdBy\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n                \"user\": {\n                    \"id\": \"607f575a-b0c9-4c00-a319-51a9483236ff\",\n                    \"name\": \"User\"\n                }\n            },\n            {\n                \"id\": \"06b233bb-4aaa-42bb-a537-cb251c70f104\",\n                \"name\": \"Book\",\n                \"description\": \"New Book\",\n                \"price\": 100000,\n                \"stock\": 2,\n                \"createdAt\": \"2025-12-31T06:13:53.912Z\",\n                \"updatedAt\": \"2025-12-31T06:13:53.912Z\",\n                \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"user\": {\n                    \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                    \"name\": \"Admin\"\n                }\n            },\n            {\n                \"id\": \"12efce81-843d-4f93-991c-ad8dd3a9fbfa\",\n                \"name\": \"Mousepad XL\",\n                \"description\": \"Extended mousepad\",\n                \"price\": 150000,\n                \"stock\": 60,\n                \"createdAt\": \"2025-12-31T05:58:14.810Z\",\n                \"updatedAt\": \"2025-12-31T05:58:14.810Z\",\n                \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"user\": {\n                    \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                    \"name\": \"Admin\"\n                }\n            },\n            {\n                \"id\": \"eaf8d7ab-a046-4621-821f-0c6e0bc2434e\",\n                \"name\": \"RAM 16GB\",\n                \"description\": \"DDR4 3200MHz\",\n                \"price\": 800000,\n                \"stock\": 45,\n                \"createdAt\": \"2025-12-31T05:58:14.805Z\",\n                \"updatedAt\": \"2025-12-31T05:58:14.805Z\",\n                \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"user\": {\n                    \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                    \"name\": \"Admin\"\n                }\n            },\n            {\n                \"id\": \"cdacf17c-ce90-4deb-84f4-7075dbcb6d81\",\n                \"name\": \"SSD 1TB\",\n                \"description\": \"NVMe SSD 1TB\",\n                \"price\": 1500000,\n                \"stock\": 35,\n                \"createdAt\": \"2025-12-31T05:58:14.799Z\",\n                \"updatedAt\": \"2025-12-31T05:58:14.799Z\",\n                \"createdBy\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                \"user\": {\n                    \"id\": \"58651bf4-0fc0-462f-8833-d1006ef1030f\",\n                    \"name\": \"Admin\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
