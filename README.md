@@ -21,6 +21,7 @@ Backend API with NestJS + Prisma + PostgreSQL.
 npm install
 cp .env.example .env
 npx prisma migrate dev
+npm run db:seed
 npm run start:dev
 ```
 
@@ -43,10 +44,19 @@ JWT_EXPIRES_IN="7d"
 | `npm run db:migrate` | Run migration                |
 | `npm run db:seed`    | Run seeder                   |
 
+## Seeder Accounts
+
+| Role  | Email             | Password |
+| ----- | ----------------- | -------- |
+| ADMIN | admin@example.com | admin123 |
+| USER  | user@example.com  | user123  |
+
 ## API Endpoints
 
-| Method | Endpoint                | Description   |
-| ------ | ----------------------- | ------------- |
-| GET    | `/api/v1/`              | Check API     |
-| POST   | `/api/v1/auth/register` | Register user |
-| POST   | `/api/v1/auth/login`    | Login user    |
+| Method | Endpoint                | Description               | Auth  |
+| ------ | ----------------------- | ------------------------- | ----- |
+| GET    | `/api/v1/`              | Check API                 | -     |
+| POST   | `/api/v1/auth/register` | Register user             | -     |
+| POST   | `/api/v1/auth/login`    | Login user                | -     |
+| GET    | `/api/v1/users`         | Get all users (paginated) | ADMIN |
+| GET    | `/api/v1/users/profile` | Get own profile           | All   |
