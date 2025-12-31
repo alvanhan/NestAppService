@@ -14,8 +14,8 @@ export class UsersController {
   @Get()
   @UseGuards(RolesGuard)
   @Roles(Role.ADMIN)
-  findAll(@Query('page') page = 1, @Query('limit') limit = 10) {
-    return this.usersService.findAll(page, limit);
+  findAll(@Query('page') page = '1', @Query('limit') limit = '10') {
+    return this.usersService.findAll(+page, +limit);
   }
 
   @Get('profile')
