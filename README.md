@@ -1,21 +1,21 @@
 # NestJS Backend API
 
-Backend API dengan NestJS + Prisma + PostgreSQL.
+Backend API with NestJS + Prisma + PostgreSQL.
 
 ## Dependencies
 
-| Package | Version |
-|---------|---------|
-| @nestjs/core | ^11.0.1 |
-| @nestjs/jwt | ^11.0.2 |
-| @nestjs/passport | ^11.0.5 |
-| @prisma/client | ^7.2.0 |
-| bcrypt | ^6.0.0 |
-| class-validator | ^0.14.3 |
-| class-transformer | ^0.5.1 |
-| passport-jwt | ^4.0.1 |
+| Package           | Version |
+| ----------------- | ------- |
+| @nestjs/core      | ^11.0.1 |
+| @nestjs/jwt       | ^11.0.2 |
+| @nestjs/passport  | ^11.0.5 |
+| @prisma/client    | ^7.2.0  |
+| bcrypt            | ^6.0.0  |
+| class-validator   | ^0.14.3 |
+| class-transformer | ^0.5.1  |
+| passport-jwt      | ^4.0.1  |
 
-## Instalasi
+## Installation
 
 ```bash
 npm install
@@ -33,6 +33,20 @@ JWT_SECRET="secret"
 JWT_EXPIRES_IN="7d"
 ```
 
+## Scripts
+
+| Command              | Description                  |
+| -------------------- | ---------------------------- |
+| `npm run start:dev`  | Development mode             |
+| `npm run start:prod` | Production mode              |
+| `npm run db:studio`  | Prisma Studio (Database GUI) |
+| `npm run db:migrate` | Run migration                |
+| `npm run db:seed`    | Run seeder                   |
+
 ## API Endpoints
 
-*Coming soon*
+| Method | Endpoint                | Description   |
+| ------ | ----------------------- | ------------- |
+| GET    | `/api/v1/`              | Check API     |
+| POST   | `/api/v1/auth/register` | Register user |
+| POST   | `/api/v1/auth/login`    | Login user    |
