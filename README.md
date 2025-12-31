@@ -55,24 +55,24 @@ JWT_EXPIRES_IN="7d"
 
 ### Auth
 
-| Method | Endpoint                | Description   | Auth |
-| ------ | ----------------------- | ------------- | ---- |
-| POST   | `/api/v1/auth/register` | Register user | -    |
-| POST   | `/api/v1/auth/login`    | Login user    | -    |
+| Method | Endpoint                | Description       | Access |
+| ------ | ----------------------- | ----------------- | ------ |
+| POST   | `/api/v1/auth/register` | Register new user | Public |
+| POST   | `/api/v1/auth/login`    | Login user        | Public |
 
 ### Users
 
-| Method | Endpoint                | Description               | Auth  |
-| ------ | ----------------------- | ------------------------- | ----- |
-| GET    | `/api/v1/users`         | Get all users (paginated) | ADMIN |
-| GET    | `/api/v1/users/profile` | Get own profile           | All   |
+| Method | Endpoint                | Description               | Access        |
+| ------ | ----------------------- | ------------------------- | ------------- |
+| GET    | `/api/v1/users`         | Get all users (paginated) | Admin Only    |
+| GET    | `/api/v1/users/profile` | Get own profile           | Authenticated |
 
 ### Products
 
-| Method | Endpoint               | Description                  | Auth        |
-| ------ | ---------------------- | ---------------------------- | ----------- |
-| POST   | `/api/v1/products`     | Create product               | All         |
-| GET    | `/api/v1/products`     | Get all products (paginated) | All         |
-| GET    | `/api/v1/products/:id` | Get product detail           | All         |
-| PATCH  | `/api/v1/products/:id` | Update product               | Owner/Admin |
-| DELETE | `/api/v1/products/:id` | Delete product               | Owner/Admin |
+| Method | Endpoint               | Description                  | Access        |
+| ------ | ---------------------- | ---------------------------- | ------------- |
+| POST   | `/api/v1/products`     | Create product               | Authenticated |
+| GET    | `/api/v1/products`     | Get all products (paginated) | Authenticated |
+| GET    | `/api/v1/products/:id` | Get product detail           | Authenticated |
+| PATCH  | `/api/v1/products/:id` | Update product               | Owner / Admin |
+| DELETE | `/api/v1/products/:id` | Delete product               | Owner / Admin |
