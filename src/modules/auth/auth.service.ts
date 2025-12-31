@@ -4,6 +4,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { ResponseFormatter } from 'src/common/utils/response.util';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,7 @@ export class AuthService {
         });
 
         if (existingUser) {
-            throw new ConflictException('Email sudah terdaftar');
+            throw new ConflictException('Email already registered');
         }
 
         const hashedPassword = await bcrypt.hash(dto.password, 10);
@@ -31,15 +32,12 @@ export class AuthService {
             },
         });
 
-        return {
-            message: 'Registrasi berhasil',
-            user: {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                role: user.role,
-            },
-        };
+        return ResponseFormatter.created({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+        }, 'Registration successful');
     }
 
     async login(dto: LoginDto) {
@@ -48,20 +46,19 @@ export class AuthService {
         });
 
         if (!user) {
-            throw new UnauthorizedException('Email atau password salah');
+            throw new UnauthorizedException('Invalid email or password');
         }
 
         const isPasswordValid = await bcrypt.compare(dto.password, user.password);
 
         if (!isPasswordValid) {
-            throw new UnauthorizedException('Email atau password salah');
+            throw new UnauthorizedException('Invalid email or password');
         }
 
         const payload = { sub: user.id, email: user.email, role: user.role };
         const token = await this.jwtService.signAsync(payload);
 
-        return {
-            message: 'Login berhasil',
+        return ResponseFormatter.success({
             access_token: token,
             user: {
                 id: user.id,
@@ -69,7 +66,7 @@ export class AuthService {
                 email: user.email,
                 role: user.role,
             },
-        };
+        }, 'Login successful');
     }
 
     async validateUser(userId: string) {
