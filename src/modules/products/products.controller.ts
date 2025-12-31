@@ -8,7 +8,9 @@ import {
   Delete,
   Query,
   UseGuards,
+  Res,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -21,6 +23,16 @@ import { Role } from '@prisma/client';
 @UseGuards(JwtAuthGuard)
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
+
+  @Get('export/excel')
+  exportExcel(@Res() res: Response) {
+    return this.productsService.exportExcel(res);
+  }
+
+  @Get('export/pdf')
+  exportPdf(@Res() res: Response) {
+    return this.productsService.exportPdf(res);
+  }
 
   @Post()
   create(@Body() dto: CreateProductDto, @CurrentUser() user: { id: string }) {

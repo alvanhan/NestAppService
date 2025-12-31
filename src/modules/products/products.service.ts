@@ -9,10 +9,51 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { FindAllProductsDto } from './dto/find-all-products.dto';
 import { Role } from '@prisma/client';
+import { Response } from 'express';
+import { ExportService } from 'src/common/services/export.service';
 
 @Injectable()
 export class ProductsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private exportService: ExportService,
+  ) {}
+
+  async exportExcel(res: Response) {
+    const products = await this.prisma.product.findMany({
+      include: { user: { select: { name: true } } },
+    });
+
+    const data = products.map((p) => ({
+      ...p,
+      createdBy: p.user.name,
+    }));
+
+    const columns = [
+      { header: 'ID', key: 'id', width: 30 },
+      { header: 'Name', key: 'name', width: 20 },
+      { header: 'Price', key: 'price', width: 15 },
+      { header: 'Stock', key: 'stock', width: 10 },
+      { header: 'Helper', key: 'createdBy', width: 15 },
+    ];
+
+    return this.exportService.exportToExcel(data, columns, 'products', res);
+  }
+
+  async exportPdf(res: Response) {
+    const products = await this.prisma.product.findMany({
+      include: { user: { select: { name: true } } },
+    });
+
+    const data = products.map((p) => ({
+      ...p,
+      createdBy: p.user.name,
+    }));
+
+    const columns = ['name', 'price', 'stock', 'createdBy'];
+
+    return this.exportService.exportToPdf(data, columns, 'products', res);
+  }
 
   async create(dto: CreateProductDto, userId: string) {
     const product = await this.prisma.product.create({
@@ -36,8 +77,6 @@ export class ProductsService {
     const skip = (page - 1) * limit;
 
     const where = createdBy ? { createdBy } : {};
-
-    // ... rest of method
 
     const [products, total] = await Promise.all([
       this.prisma.product.findMany({
