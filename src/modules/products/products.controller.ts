@@ -25,13 +25,21 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get('export/excel')
-  exportExcel(@Res() res: Response) {
-    return this.productsService.exportExcel(res);
+  exportExcel(
+    @Res() res: Response,
+    @Query() query: FindAllProductsDto,
+    @CurrentUser() user: { name: string },
+  ) {
+    return this.productsService.exportExcel(res, query, user);
   }
 
   @Get('export/pdf')
-  exportPdf(@Res() res: Response) {
-    return this.productsService.exportPdf(res);
+  exportPdf(
+    @Res() res: Response,
+    @Query() query: FindAllProductsDto,
+    @CurrentUser() user: { name: string },
+  ) {
+    return this.productsService.exportPdf(res, query, user);
   }
 
   @Post()

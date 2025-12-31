@@ -7,15 +7,22 @@ export class DashboardService {
   constructor(private prisma: PrismaService) {}
 
   async getSummary() {
-    const [totalUsers, totalProducts, totalStock] = await Promise.all([
-      this.prisma.user.count(),
-      this.prisma.product.count(),
-      this.prisma.product.aggregate({
-        _sum: {
-          stock: true,
-        },
-      }),
-    ]);
+    const products = await this.prisma.product.findMany({
+      select: { price: true, stock: true, name: true },
+    });
+
+    const totalUsers = await this.prisma.user.count();
+    const totalProducts = products.length;
+
+    const totalStock = products.reduce((acc, curr) => acc + curr.stock, 0);
+    const totalInventoryValue = products.reduce(
+      (acc, curr) => acc + curr.price * curr.stock,
+      0,
+    );
+
+    const prices = products.map((p) => p.price);
+    const maxPrice = prices.length ? Math.max(...prices) : 0;
+    const minPrice = prices.length ? Math.min(...prices) : 0;
 
     const recentProducts = await this.prisma.product.findMany({
       take: 5,
@@ -32,7 +39,10 @@ export class DashboardService {
         counts: {
           users: totalUsers,
           products: totalProducts,
-          totalStock: totalStock._sum.stock || 0,
+          totalStock: totalStock,
+          totalInventoryValue: totalInventoryValue,
+          maxPrice: maxPrice,
+          minPrice: minPrice,
         },
         recentProducts,
       },

@@ -69,10 +69,18 @@ JWT_EXPIRES_IN="7d"
 
 ### Products
 
-| Method | Endpoint               | Description                  | Access        |
-| ------ | ---------------------- | ---------------------------- | ------------- |
-| POST   | `/api/v1/products`     | Create product               | Authenticated |
-| GET    | `/api/v1/products`     | Get all products (paginated) | Authenticated |
-| GET    | `/api/v1/products/:id` | Get product detail           | Authenticated |
-| PATCH  | `/api/v1/products/:id` | Update product               | Owner / Admin |
-| DELETE | `/api/v1/products/:id` | Delete product               | Owner / Admin |
+| Method | Endpoint                        | Description                  | Access        |
+| ------ | ------------------------------- | ---------------------------- | ------------- |
+| POST   | `/api/v1/products`              | Create product               | Authenticated |
+| GET    | `/api/v1/products`              | Get all products (paginated) | Authenticated |
+| GET    | `/api/v1/products/:id`          | Get product detail           | Authenticated |
+| PATCH  | `/api/v1/products/:id`          | Update product               | Owner / Admin |
+| DELETE | `/api/v1/products/:id`          | Delete product               | Owner / Admin |
+| GET    | `/api/v1/products/export/excel` | Export to Excel              | Authenticated |
+| GET    | `/api/v1/products/export/pdf`   | Export to PDF                | Authenticated |
+
+### Dashboard
+
+| Method | Endpoint                    | Description    | Access     |
+| ------ | --------------------------- | -------------- | ---------- |
+| GET    | `/api/v1/dashboard/summary` | Get statistics | Admin Only |
