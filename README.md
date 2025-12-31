@@ -15,15 +15,42 @@ Backend API with NestJS + Prisma + PostgreSQL.
 | class-transformer | ^0.5.1  |
 | passport-jwt      | ^4.0.1  |
 
+## Prerequisites
+
+- Node.js (v22+)
+- PostgreSQL (v14+)
+- npm or yarn
+
 ## Installation
 
-```bash
-npm install
-cp .env.example .env
-npx prisma migrate dev
-npx ts-node prisma/seed.ts
-npm run start:dev
-```
+1.  **Clone & Install Dependencies**
+
+    ```bash
+    git clone <repo-url>
+    cd NestAppService
+    npm install
+    ```
+
+2.  **Environment Setup**
+
+    ```bash
+    cp .env.example .env
+    # Edit .env and adjust DATABASE_URL if needed
+    ```
+
+3.  **Database Setup**
+
+    ```bash
+    # Ensure PostgreSQL service is running and database exists (if not created by Prisma)
+    npm run db:migrate  # Runs prisma migrate dev
+    npm run db:seed     # Seeds initial data
+    ```
+
+4.  **Run Application**
+    ```bash
+    npm run start:dev
+    # Server will start at http://localhost:8080 (or port in .env)
+    ```
 
 ## Environment Variables
 
