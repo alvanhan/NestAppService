@@ -7,6 +7,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { ResponseFormatter } from 'src/common/utils/response.util';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { FindAllProductsDto } from './dto/find-all-products.dto';
 import { Role } from '@prisma/client';
 
 @Injectable()
@@ -30,11 +31,17 @@ export class ProductsService {
     return ResponseFormatter.created(product, 'Product created successfully');
   }
 
-  async findAll(page = 1, limit = 10) {
+  async findAll(query: FindAllProductsDto) {
+    const { page = 1, limit = 10, createdBy } = query;
     const skip = (page - 1) * limit;
+
+    const where = createdBy ? { createdBy } : {};
+
+    // ... rest of method
 
     const [products, total] = await Promise.all([
       this.prisma.product.findMany({
+        where,
         skip,
         take: limit,
         include: {
@@ -44,7 +51,7 @@ export class ProductsService {
         },
         orderBy: { createdAt: 'desc' },
       }),
-      this.prisma.product.count(),
+      this.prisma.product.count({ where }),
     ]);
 
     return ResponseFormatter.paginate(

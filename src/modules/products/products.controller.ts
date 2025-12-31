@@ -12,6 +12,7 @@ import {
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { FindAllProductsDto } from './dto/find-all-products.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { Role } from '@prisma/client';
@@ -27,8 +28,8 @@ export class ProductsController {
   }
 
   @Get()
-  findAll(@Query('page') page = '1', @Query('limit') limit = '10') {
-    return this.productsService.findAll(+page, +limit);
+  findAll(@Query() query: FindAllProductsDto) {
+    return this.productsService.findAll(query);
   }
 
   @Get(':id')
